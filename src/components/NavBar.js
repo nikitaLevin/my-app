@@ -15,7 +15,7 @@ const NavBarStyled = styled.header`
     align-items: center;
     padding: 15px;
     background-color: #299B01;
-    color: white;|
+    color: white;
 `;
 
 const Logo = styled.div`
