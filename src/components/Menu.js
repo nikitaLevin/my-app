@@ -17,16 +17,22 @@ const NameSection = styled.h2`
     cursor: default;
 `;
 
-export const Menu = () => (
+export const Menu = ({ setOpenItem }) => (
     <MenuStyled>
         <Banner></Banner>
         <SectionMenu>
             <NameSection>Burgers</NameSection>
-            <ListItem itemList={dbMenu.burger}/>
+            <ListItem
+            itemList={dbMenu.burger}
+            setOpenItem={setOpenItem}
+            />
         </SectionMenu>
         <SectionMenu>
             <NameSection>Starters and Drinks</NameSection>
-            <ListItem itemList={dbMenu.other}/>
+            <ListItem
+            itemList={dbMenu.other}
+            setOpenItem={setOpenItem}
+            />
         </SectionMenu>
     </MenuStyled>
 )
