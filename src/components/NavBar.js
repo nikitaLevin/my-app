@@ -8,12 +8,11 @@ const NavBarStyled = styled.header`
     top: 0;
     left: 0;
     z-index: 999;
-    height: 80px;
+    height: 10%;
     width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
     background-color: #299B01;
     color: white;
 `;
