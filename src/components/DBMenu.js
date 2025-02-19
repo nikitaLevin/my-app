@@ -35,11 +35,11 @@ const dbMenu = {
             toppings: ['Ketchup', 'Cheddar Cheese'],
         },
         {
-            name: 'Sun Burger', // Допустим это McChicken
+            name: 'Sun Burger',
             img: '/menu/sun-burger.png',
             id: 6,
             price: 3.99,
-            toppings: ['Cheddar Cheese', 'Red Onion'], // Необычно, но оставим
+            toppings: ['Cheddar Cheese', 'Red Onion'],
         },
     ],
     other: [
