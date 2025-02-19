@@ -26,6 +26,7 @@ const Logo = styled.div`
 const H1 = styled.h1`
     font-size: 24px;
     margin-left: 15px;
+    cursor: default;
 `;
 
 const ImgLogo = styled.img`

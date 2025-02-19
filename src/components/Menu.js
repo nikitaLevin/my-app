@@ -20,15 +20,19 @@ const SectionMenu = styled.section`
     padding: 30px;
 `;
 
+const NameSection = styled.h2`
+    cursor: default;
+`;
+
 export const Menu = () => (
     <MenuStyled>
         <Banner></Banner>
         <SectionMenu>
-            <h2>Burgers</h2>
+            <NameSection>Burgers</NameSection>
             <ListItem itemList={dbMenu.burger}/>
         </SectionMenu>
         <SectionMenu>
-            <h2>Starters and Drinks</h2>
+            <NameSection>Starters and Drinks</NameSection>
             <ListItem itemList={dbMenu.other}/>
         </SectionMenu>
     </MenuStyled>
