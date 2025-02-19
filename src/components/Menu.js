@@ -1,15 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import dbMenu from "./DBMenu";
-import bannerImg from "../images/banner.png"
 import { ListItem } from "./Listitem";
-
-const Banner = styled.div`
-    background-image: url(${bannerImg});
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-`;
+import { Banner } from "./Banner";
 
 const MenuStyled = styled.main`
     background-color: #ccc;
