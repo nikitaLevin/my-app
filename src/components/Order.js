@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ButtonCheckout } from "./ButtonCheckout";
+import { OrderListItem } from "./OrderListItem";
 
 const OrderStyle = styled.section`
     position: fixed;
@@ -34,20 +35,27 @@ const Total = styled.div`
     }
 `;
 
+const Totalprice = styled.span`
+    text-align: right;
+    min-width: 65px;
+    margin-left: 20px;
+`;
+
 export const Order = () => {
     return (
         <OrderStyle>
             <OrderTitle>Your order</OrderTitle>
             <OrderContent>
                 <Orderlist>
-                    
-
+                    <OrderListItem/>
+                    <OrderListItem/>
+                    <OrderListItem/>
                 </Orderlist>
             </OrderContent>
             <Total>
                 <span>total</span>
                 <span>5</span>
-                <span>560</span>
+                <Totalprice>560</Totalprice>
             </Total>
             <ButtonCheckout>Order now</ButtonCheckout>
         </OrderStyle>
