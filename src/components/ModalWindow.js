@@ -54,9 +54,6 @@ export const ModalWindow = ({ openItem, setOpenItem }) => {
         }
     }
 
-    if (!openItem) return null;
-
-
     return (
     <Overlay id="Overlay" onClick={closeModal}>
         <Modal>

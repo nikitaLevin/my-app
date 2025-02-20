@@ -3,10 +3,13 @@ import { NavBar } from "./components/NavBar";
 import { Menu } from "./components/Menu";
 import { GlobalStyle } from "./components/GlobalStyle";
 import { ModalWindow } from "./components/ModalWindow";
+import { Order } from "./components/Order";
+import { useOpenItem } from "./components/Hooks/useOpenItem";
+
 
 function App() {
 
-  const [openItem, setOpenItem] = React.useState(null);
+  const openItem = useOpenItem();
 
 
 
@@ -14,8 +17,9 @@ function App() {
     <>
       <GlobalStyle/>
       <NavBar/>
-      <Menu setOpenItem={setOpenItem}/>
-      <ModalWindow openItem={openItem} setOpenItem={setOpenItem}/>
+      <Order/>
+      <Menu {...openItem}/>
+      { openItem.openItem && <ModalWindow {...openItem}/>}
     </>
   );
 }
