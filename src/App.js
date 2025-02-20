@@ -4,7 +4,7 @@ import { Menu } from "./components/Menu";
 import { GlobalStyle } from "./components/GlobalStyle";
 import { ModalWindow } from "./components/ModalWindow";
 import { Order } from "./components/Order";
-import { useOpenItem } from "./components/useOpenItem";
+import { useOpenItem } from "./components/Hooks/useOpenItem";
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       <NavBar/>
       <Order/>
       <Menu {...openItem}/>
-      <ModalWindow {...openItem}/>
+      { openItem.openItem && <ModalWindow {...openItem}/>}
     </>
   );
 }
