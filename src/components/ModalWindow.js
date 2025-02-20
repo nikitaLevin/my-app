@@ -27,10 +27,13 @@ const Banner = styled.div`
     background-image: url(${({img}) => img});
     background-size: cover;
     background-position: center;
-    margin-bottom: 20px;
 `;
 
 const Content = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 250px);
     padding: 30px;
 `;
 
