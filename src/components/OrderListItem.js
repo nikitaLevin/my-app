@@ -16,7 +16,8 @@ const TrashBtn = styled.button`
 
 const OrderItemStyled = styled.li`
     display: flex;
-    margin: 15px;
+    margin: 5px;
+    font-size: 80%;
 `;
 
 const ItemName = styled.span`
