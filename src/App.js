@@ -19,7 +19,7 @@ function App() {
       <NavBar/>
       <Order/>
       <Menu {...openItem}/>
-      <ModalWindow {...openItem}/>
+      { openItem.openItem && <ModalWindow {...openItem}/>}
     </>
   );
 }
