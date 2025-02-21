@@ -22,6 +22,7 @@ const OrderItemStyled = styled.li`
 
 const ItemName = styled.span`
     flex-grow: 1;
+    cursor: default;
 `;
 
 const ItemPrice = styled.span`
@@ -29,6 +30,7 @@ const ItemPrice = styled.span`
     margin-right: 10px;
     min-width: 65px;
     text-align: right;
+    cursor: default;
 `;
 
 
