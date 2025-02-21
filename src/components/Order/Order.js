@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ButtonCheckout } from "./ButtonCheckout";
-import { OrderListItem } from "./OrderListItem";
+import { ButtonCheckout } from "../ButtonCheckout";
+import { OrderListItem } from "../OrderListItem";
 
 const OrderStyle = styled.section`
     position: fixed;
