@@ -54,6 +54,7 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
         }
     }
 
+
     const order = {
         ...openItem
     };
