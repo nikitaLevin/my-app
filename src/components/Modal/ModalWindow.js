@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { ButtonCheckout } from "../ButtonCheckout";
+import { CountItem } from "./CountItem";
+import { useCount } from "../Hooks/useCount.js"
+import { setCurrency } from "../Function/secondaryFunction.js";
+import { totalPriceItems } from "../Function/secondaryFunction.js";
 
 const Overlay = styled.div`
     position: fixed;
@@ -45,8 +49,15 @@ const HeaderContent = styled.div`
     font-family: 'Pacifico', cursive;
 `;
 
+const TotalPriceItem = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
 
 export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
+
+    const counter = useCount();
 
     const closeModal = e => {
         if (e.target.id === 'Overlay') {
@@ -54,9 +65,9 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
         }
     }
 
-
     const order = {
-        ...openItem
+        ...openItem,
+        count: counter.count
     };
 
     const addToOrder = () => {
@@ -71,9 +82,15 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
             <Content>
                 <HeaderContent>
                     <div>{openItem.name}</div>
-                    <div>{openItem.price.toLocaleString('us-US',
-                    {style: 'currency', currency: 'USD'})}</div>
+                    <div>{setCurrency(openItem.price)}</div>
                 </HeaderContent>
+                <CountItem {...counter}/>
+                <TotalPriceItem>
+                <span>Price:</span>
+                    <span>
+                        {setCurrency(totalPriceItems(order))}
+                    </span>
+                </TotalPriceItem>
                 <ButtonCheckout onClick={addToOrder}>Add to cart</ButtonCheckout>
             </Content>
         </Modal>

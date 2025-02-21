@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { setCurrency } from "../Function/secondaryFunction";
 
 const List = styled.ul`
     display: flex;
@@ -48,8 +49,7 @@ export const ListItem = ({ itemList, setOpenItem }) => (
                 img={item.img}
                 onClick={() => setOpenItem(item)}>
                 <p>{item.name}</p>
-                <p>{item.price.toLocaleString('us-US',
-                    {style: 'currency', currency: 'USD'})}
+                <p>{setCurrency(item.price)}
                 </p>
             </Item>
         ))}
