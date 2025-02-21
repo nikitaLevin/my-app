@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import trashImage from "../images/Trash.svg"
+import trashImage from "../../images/Trash.svg"
 
 const TrashBtn = styled.button`
     width: 24px;
