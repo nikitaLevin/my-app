@@ -41,16 +41,20 @@ const Totalprice = styled.span`
     margin-left: 20px;
 `;
 
-export const Order = () => {
+const EmptyList = styled.p`
+    text-align: center;
+`;
+
+export const Order = ({ orders }) => {
     return (
         <OrderStyle>
             <OrderTitle>Your order</OrderTitle>
             <OrderContent>
+                {orders.length ?
                 <Orderlist>
-                    <OrderListItem/>
-                    <OrderListItem/>
-                    <OrderListItem/>
-                </Orderlist>
+                    {orders.map(order => <OrderListItem order={order}/>)}
+                </Orderlist> :
+                <EmptyList>Your cart is empty</EmptyList>}
             </OrderContent>
             <Total>
                 <span>total</span>

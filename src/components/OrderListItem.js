@@ -33,11 +33,12 @@ const ItemPrice = styled.span`
 
 
 
-export const OrderListItem = () => (
+export const OrderListItem = ({ order }) => (
     <OrderItemStyled>
-        <ItemName>name</ItemName>
+        <ItemName>{order.name}</ItemName>
         <span>count</span>
-        <ItemPrice>price</ItemPrice>
+        <ItemPrice>{order.price.toLocaleString('us-US',
+                    {style: 'currency', currency: 'USD'})}</ItemPrice>
         <TrashBtn/>
     </OrderItemStyled>
 )

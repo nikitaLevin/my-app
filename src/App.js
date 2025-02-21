@@ -4,12 +4,14 @@ import { Menu } from "./components/Menu";
 import { GlobalStyle } from "./components/GlobalStyle";
 import { ModalWindow } from "./components/ModalWindow";
 import { Order } from "./components/Order";
-import { useOpenItem } from "./components/useOpenItem";
+import { useOpenItem } from "./components/Hooks/useOpenItem";
+import { useOrders } from "./components/Hooks/useOrders";
 
 
 function App() {
 
   const openItem = useOpenItem();
+  const orders = useOrders();
 
 
 
@@ -17,9 +19,9 @@ function App() {
     <>
       <GlobalStyle/>
       <NavBar/>
-      <Order/>
+      <Order {...orders}/>
       <Menu {...openItem}/>
-      { openItem.openItem && <ModalWindow {...openItem}/>}
+      { openItem.openItem && <ModalWindow {...openItem} {...orders}/>}
     </>
   );
 }
