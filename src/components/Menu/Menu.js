@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import dbMenu from "./DBMenu";
+import dbMenu from "../DBMenu";
 import { ListItem } from "./Listitem";
 import { Banner } from "./Banner";
 
 const MenuStyled = styled.main`
     background-color: #ccc;
     margin-top: 50px;
+    height: 100%;
+    margin-left: 20vw;
 `;
 
 const SectionMenu = styled.section`
