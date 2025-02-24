@@ -20,11 +20,13 @@ const OrderItemStyled = styled.li`
     display: flex;
     margin: 5px;
     font-size: 80%;
+    flex-wrap: wrap;
 `;
 
 const ItemName = styled.span`
     flex-grow: 1;
     cursor: default;
+    max-width: 50%;
 `;
 
 const ItemPrice = styled.span`
@@ -36,14 +38,24 @@ const ItemPrice = styled.span`
 `;
 
 
+const Toppings = styled.div`
+    color: #9a9a9a;
+    font-size: 14px;
+`;
 
+export const OrderListItem = ({ order }) => {
+    
+    const topping = order.topping.filter(item => item.checked)
+        .map(item => item.name)
+        .join(', ')
 
-export const OrderListItem = ({ order }) => (
+    return (
     <OrderItemStyled>
         <ItemName>{order.name}</ItemName>
         <span>{order.count}</span>
         <ItemPrice>{setCurrency(totalPriceItems(order))}</ItemPrice>
         <TrashBtn/>
+        {topping && <Toppings>Toppings: {topping} </Toppings>}
     </OrderItemStyled>
-)
+)};
 

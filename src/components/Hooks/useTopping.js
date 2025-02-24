@@ -7,7 +7,10 @@ const getTopping = toppings => toppings.map(item => ({
 }))
 
 export function useToppings(openItem) {
-    const [toppings, setToppings] = useState(getTopping(openItem.toppings))
+    console.log(openItem.topping)
+
+    const readyTopping = openItem.toppings ? getTopping(openItem.toppings) : [];
+    const [toppings, setToppings] = useState(readyTopping);
 
     const checkToppings = index => {
         setToppings(toppings.map((item, i) => {
