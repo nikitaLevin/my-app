@@ -61,9 +61,10 @@ const TotalPriceItem = styled.div`
 
 export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
 
-    const counter = useCount();
+    const counter = useCount(openItem.count);
     const toppings = useToppings(openItem);
     const choices = useChoices(openItem);
+    const isEdit = openItem.index > -1;
 
     const closeModal = e => {
         if (e.target.id === 'Overlay') {
@@ -77,6 +78,13 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
         topping: toppings.toppings,
         choice: choices.choice,
     };
+
+    const editOrder = () => {
+        const newOrders = [...orders];
+        newOrders[openItem.index] = order;
+        setOrders(newOrders);
+        setOpenItem(null);
+    }
 
     const addToOrder = () => {
         setOrders([...orders, order]);
@@ -101,7 +109,7 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
                         {setCurrency(totalPriceItems(order))}
                     </span>
                 </TotalPriceItem>
-                <ButtonCheckout onClick={addToOrder} disabled={order.choices && !order.choice}>Add to cart</ButtonCheckout>
+                <ButtonCheckout onClick={isEdit ? editOrder : addToOrder} disabled={order.choices && !order.choice}>Add to cart</ButtonCheckout>
             </Content>
         </Modal>
     </Overlay>
