@@ -43,7 +43,7 @@ const Toppings = styled.div`
     font-size: 14px;
 `;
 
-export const OrderListItem = ({ order }) => {
+export const OrderListItem = ({ order, index, deleteItem }) => {
     
     const topping = order.topping.filter(item => item.checked)
         .map(item => item.name)
@@ -54,7 +54,7 @@ export const OrderListItem = ({ order }) => {
         <ItemName>{order.name} {order.choice}</ItemName>
         <span>{order.count}</span>
         <ItemPrice>{setCurrency(totalPriceItems(order))}</ItemPrice>
-        <TrashBtn/>
+        <TrashBtn onClick={() => deleteItem(index)}/>
         {topping && <Toppings>Toppings: {topping} </Toppings>}
     </OrderItemStyled>
 )};
