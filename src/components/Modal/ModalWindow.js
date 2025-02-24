@@ -6,7 +6,9 @@ import { useCount } from "../Hooks/useCount"
 import { setCurrency } from "../Function/secondaryFunction";
 import { totalPriceItems } from "../Function/secondaryFunction";
 import { Toppings } from "./Toppings";
+import { Choices } from "./Choices";
 import { useToppings } from "../Hooks/useTopping";
+import { useChoices } from "../Hooks/useChoices";
 
 const Overlay = styled.div`
     position: fixed;
@@ -61,6 +63,7 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
 
     const counter = useCount();
     const toppings = useToppings(openItem);
+    const choices = useChoices(openItem);
 
     const closeModal = e => {
         if (e.target.id === 'Overlay') {
@@ -71,7 +74,8 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
     const order = {
         ...openItem,
         count: counter.count,
-        topping: toppings.toppings
+        topping: toppings.toppings,
+        choices: choices.choice,
     };
 
     const addToOrder = () => {
@@ -88,7 +92,8 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
                     <div>{openItem.name}</div>
                     <div>{setCurrency(openItem.price)}</div>
                 </HeaderContent>
-                { openItem.toppings && <Toppings {...toppings}/>}
+                { openItem.toppings && <Toppings {...toppings} />}
+                { openItem.choices && <Choices {...choices} openItem={openItem} />}
                 <CountItem {...counter}/>
                 <TotalPriceItem>
                 <span>Price:</span>
