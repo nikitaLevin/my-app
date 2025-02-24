@@ -75,7 +75,7 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
         ...openItem,
         count: counter.count,
         topping: toppings.toppings,
-        choices: choices.choice,
+        choice: choices.choice,
     };
 
     const addToOrder = () => {
@@ -101,7 +101,7 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
                         {setCurrency(totalPriceItems(order))}
                     </span>
                 </TotalPriceItem>
-                <ButtonCheckout onClick={addToOrder}>Add to cart</ButtonCheckout>
+                <ButtonCheckout onClick={addToOrder} disabled={order.choices && !order.choice}>Add to cart</ButtonCheckout>
             </Content>
         </Modal>
     </Overlay>
