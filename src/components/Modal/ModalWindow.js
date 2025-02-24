@@ -2,9 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { ButtonCheckout } from "../ButtonCheckout";
 import { CountItem } from "./CountItem";
-import { useCount } from "../Hooks/useCount.js"
-import { setCurrency } from "../Function/secondaryFunction.js";
-import { totalPriceItems } from "../Function/secondaryFunction.js";
+import { useCount } from "../Hooks/useCount"
+import { setCurrency } from "../Function/secondaryFunction";
+import { totalPriceItems } from "../Function/secondaryFunction";
+import { Toppings } from "./Toppings";
+import { useToppings } from "../Hooks/useTopping";
 
 const Overlay = styled.div`
     position: fixed;
@@ -58,6 +60,7 @@ const TotalPriceItem = styled.div`
 export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
 
     const counter = useCount();
+    const toppings = useToppings(openItem);
 
     const closeModal = e => {
         if (e.target.id === 'Overlay') {
@@ -67,7 +70,8 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
 
     const order = {
         ...openItem,
-        count: counter.count
+        count: counter.count,
+        topping: toppings.toppings
     };
 
     const addToOrder = () => {
@@ -84,6 +88,7 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
                     <div>{openItem.name}</div>
                     <div>{setCurrency(openItem.price)}</div>
                 </HeaderContent>
+                { openItem.toppings && <Toppings {...toppings}/>}
                 <CountItem {...counter}/>
                 <TotalPriceItem>
                 <span>Price:</span>
